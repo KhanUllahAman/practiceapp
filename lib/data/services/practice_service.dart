@@ -1,24 +1,21 @@
-// import 'dart:developer';
-// import 'package:get/get.dart';
-// import 'package:practiceproject/core/network/network_client.dart';
+import 'dart:developer';
+import 'package:get/get.dart';
+import 'package:practiceproject/core/network/api_endpoints.dart';
+import 'package:practiceproject/core/network/network_client.dart';
+import 'package:practiceproject/data/models/practice_model.dart';
 
-// class PracticeService {
-//   final NetworkClient _networkClient = Get.find();
+class PracticeService {
+  final NetworkClient _networkClient = Get.find();
 
-//   Future<ChangePasswordModel> changePassword({
-//     required int employeeId,
-//     required String oldPassword,
-//     required String newPassword,
-//   }) async {
-//     try {
-//       final response = await _networkClient.post(
-//         endpoint: ApiConstants.changePasswordUrl,
-//         body: {'employee_id': employeeId, 'old_password': oldPassword, 'new_password': newPassword},
-//       );
-//       log("Change Password Logs $response");
-//       return ChangePasswordModel.fromJson(response.data);
-//     } catch (e) {
-//       rethrow;
-//     }
-//   }
-// }
+  Future<PracticeModel> practiceapi() async {
+    try {
+      final response = await _networkClient.get(
+        endpoint: ApiConstants.practiceUrl,
+      );
+      log("Practice Model Logs $response");
+      return PracticeModel.fromJson(response.data);
+    } catch (e) {
+      rethrow;
+    }
+  }
+}

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:practiceproject/App/bindings/initial_binding.dart';
+import 'package:practiceproject/App/routes/app_pages.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -21,10 +23,9 @@ class MyApp extends StatelessWidget {
           checkerboardRasterCacheImages: false,
           checkerboardOffscreenLayers: false,
           title: 'Practice App',
-          // initialBinding: InitialBinding(),
-          // initialRoute: AppPages.initialRoute,
-          // getPages: AppPages.routes,
-          // unknownRoute: AppPages.unknownRoute,
+          initialBinding: InitialBinding(),
+          initialRoute: AppPages.initialRoute,
+          getPages: AppPages.routes,
         ),
       );
   }
